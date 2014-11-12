@@ -76,11 +76,11 @@ if (argv._[0] === 'verify' || argv._[0] === 'run') {
     }, setup.wait || 1);
     
     function onpass () {
-        console.log('# PASS');
-        console.log('\nYour solution to ' + current + ' passed!');
+        console.log('# PASO');
+        console.log('\nTu solución para ' + current + ' pasó!');
         console.log(
-            '\nHere\'s what the official solution'
-            + ' is if you want to compare notes:\n'
+            '\nAquí está la solución oficial propuesta por'
+            + ' si queres compararla: \n'
         );
         var src = fs.readFileSync(path.join(dir, 'solution.js'), 'utf8');
         src.split('\n').forEach(function (line) {
@@ -100,8 +100,8 @@ if (argv._[0] === 'verify' || argv._[0] === 'run') {
             console.log("You've finished all the challenges! Hooray!\n");
         }
         else {
-            console.log('You have ' + remaining + ' challenges left.');
-            console.log('Type `stream-adventure` to show the menu.\n');
+            console.log('Restan ' + remaining + ' desafios.');
+            console.log('Escribí `stream-adventure` para mostrar el menú.\n');
         }
         
         if (setup.close) setup.close();
@@ -110,11 +110,11 @@ if (argv._[0] === 'verify' || argv._[0] === 'run') {
     function onfail () {
         if (setup.close) setup.close();
         
-        console.log('# FAIL');
+        console.log('# FALLO');
         console.log(
-            "\nYour solution didn't match the expected output."
-            + '\nTry again, or run `stream-adventure run program.js`'
-            + ' to see your solution\'s output.'
+            "\nLa salida de tu solución no se corresponde con el valor esperado."
+            + '\nIntenta nuevamente, o ejecutá `stream-adventure run program.js`'
+            + '\npara ver la salida de tu solucón.'
         );
         exitCode = 1;
     }
@@ -164,7 +164,7 @@ function printProblem(name) {
     var rs = fs.createReadStream(file);
     rs.on('close', function () {
         console.log(
-                '\nTo verify your program, run: '
+                '\nPara verificar tu programa, ejecutá: '
                 + '`stream-adventure verify program.js`.\n'
         );
     });

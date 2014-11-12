@@ -77,14 +77,13 @@ module.exports = function (acmd, bcmd, opts) {
     }
 };
 
-function compare (actual, expected, opts) {
-    var equal = true;
+function compare (actual, expected, opts) {var equal = true;
     var output = through(write, end).pause();
     
     output.queue(COLORS.RESET);
     
     if (!opts.long) {
-        output.queue(wrap('ACTUAL', 30) + '     EXPECTED\n');
+        output.queue(wrap('ACTUAL', 30) + '     ESPERADO\n');
         output.queue(wrap('------', 30) + '     --------\n');
     }
     
@@ -104,7 +103,7 @@ function compare (actual, expected, opts) {
                 + COLORS[eq ? 'PASS' : 'FAIL']
                 + JSON.stringify(pair[0])
                 + COLORS.RESET + '\n'
-                + 'EXPECTED: '
+                + 'ESPERADO: '
                 + JSON.stringify(pair[1])
                 + '\n\n'
             );
