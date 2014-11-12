@@ -23,7 +23,7 @@ module.exports = function (opts) {
     order.forEach(function (name) {
         var isDone = opts.completed.indexOf(name) >= 0;
         if (isDone) {
-            var m = '[COMPLETED]';
+            var m = '[COMPLETADO]';
             menu.add(
                 name
                 + Array(65 - m.length - name.length + 1).join(' ')
@@ -33,15 +33,15 @@ module.exports = function (opts) {
         else menu.add(name);
     });
     menu.write('-----------------\n');
-    menu.add('HELP');
-    menu.add('EXIT');
+    menu.add('AYUDA');
+    menu.add('SALIR');
     
     menu.on('select', function (label) {
         var name = label.replace(/\s{2}.*/, '');
         
         menu.close();
-        if (name === 'EXIT') return emitter.emit('exit');
-        if (name === 'HELP') {
+        if (name === 'SALIR') return emitter.emit('exit');
+        if (name === 'AYUDA') {
             console.log();
             return fs.createReadStream(__dirname + '/usage.txt')
                 .pipe(process.stdout)
